@@ -1,0 +1,49 @@
+// import 'dart:html';
+// import 'dart:ui';
+
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
+import 'package:my_sample/screenlogin.dart';
+
+class screensplash extends StatefulWidget {
+  const screensplash({Key? key}) : super(key: key);
+
+  @override
+  State<screensplash> createState() => _screensplashState();
+}
+
+class _screensplashState extends State<screensplash> {
+  @override
+  void initState() {
+    gotologin();
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Image.network('data:image/png;base64,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'),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  Future<void> gotologin() async {
+    await Future.delayed(Duration(seconds: 3));
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: ((context) => screenlogin())));
+  }
+}

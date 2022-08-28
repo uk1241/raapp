@@ -1,0 +1,105 @@
+class myapp extends StatefulWidget {
+  myapp({Key? key}) : super(key: key);
+
+  
+
+  @override
+  
+}
+
+class _myappState extends State<myapp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+      ),
+      home: Homescreen(),
+      routes: {
+        'screen_1': (ctx) {
+          return Homescreen();
+        },
+        'screen_2': (ctx) {
+          return middlescreen();
+        },
+        'screen_3': (ctx) {
+          return screenone();
+        },
+        'screen_4': (ctx) {
+          return screenfour();
+        },
+        'screen_5': (ctx) {
+          return screenfive();
+        },
+        'screen_6': (ctx) {
+          return screensix();
+        },
+        'screen_7': (ctx) {
+          return screenlogin();
+        },
+        'screen_9': (ctx) {
+          return screen_nine();
+        },
+        'screen_10': (ctx) {
+          return screen_ten();
+        },
+        'screen_11': (ctx) {
+          return screenlogin1();
+        }
+      },
+    );
+  }
+}
+
+class Homescreen extends StatefulWidget {
+ 
+  Homescreen({Key? key}) : super(key: key);
+
+  static ValueNotifier<int>selectedindexnotifier = ValueNotifier(0);
+
+  @override
+  State<Homescreen> createState() => _HomescreenState();
+}
+
+class _HomescreenState extends State<Homescreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text('RACT-FOR NEW AGE'),
+      ),
+      body: SafeArea(
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.blueGrey,
+            // border: Border.all(color: Colors.black, width: 5),
+          ),
+          width: double.infinity,
+          height: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'RACT',
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.orangeAccent,
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('screen_2');
+                },
+                child: Text('get started'),
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: bottomnavbar(),
+    );
+  }
+}
